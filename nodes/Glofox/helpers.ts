@@ -5,6 +5,7 @@ import type {
 	IHttpRequestMethods,
 	ILoadOptionsFunctions,
 	IDataObject,
+	JsonObject,
 } from 'n8n-workflow';
 
 export const GLOFOX_BASE_URL = 'https://gf-api.aws.glofox.com/prod';
@@ -156,6 +157,6 @@ export async function glofoxRequest(
 		});
 		return response as IDataObject;
 	} catch (error) {
-		throw new NodeApiError(ctx.getNode(), error as IDataObject);
+		throw new NodeApiError(ctx.getNode(), error as JsonObject);
 	}
 }

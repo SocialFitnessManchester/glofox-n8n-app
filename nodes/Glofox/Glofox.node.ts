@@ -7,7 +7,7 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 } from 'n8n-workflow';
-import { NodeConnectionType, NodeOperationError } from 'n8n-workflow';
+import { NodeOperationError } from 'n8n-workflow';
 
 import {
 	fetchStudioRows,
@@ -25,8 +25,8 @@ export class Glofox implements INodeType {
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"] + " @ " + $parameter["studio"]}}',
 		description: 'Create leads and apply membership purchases in Glofox. Studio is picked from a Google-Sheet-backed dropdown.',
 		defaults: { name: 'Glofox' },
-		inputs: [NodeConnectionType.Main],
-		outputs: [NodeConnectionType.Main],
+		inputs: ['main'],
+		outputs: ['main'],
 		credentials: [
 			{ name: 'glofoxApi', required: true },
 		],
