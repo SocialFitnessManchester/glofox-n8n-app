@@ -17,13 +17,13 @@ import {
 
 export class Glofox implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Glofox',
+		displayName: 'Glofox: New Lead or Purchase',
 		name: 'glofox',
 		icon: 'file:glofox.svg',
 		group: ['transform'],
 		version: 1,
-		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"] + " @ " + $parameter["studio"]}}',
-		description: 'Create leads and apply membership purchases in Glofox. Studio is picked from a Google-Sheet-backed dropdown.',
+		subtitle: '={{ ($parameter["resource"] === "lead" ? "New Lead" : "New Purchase") + " @ " + $parameter["studio"] }}',
+		description: 'Create a new Lead, or assign a Purchase to an existing contact, in the selected Glofox studio. Studio is picked from a Google-Sheet-backed dropdown.',
 		defaults: { name: 'Glofox' },
 		inputs: ['main'],
 		outputs: ['main'],
